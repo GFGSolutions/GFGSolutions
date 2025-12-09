@@ -81,5 +81,5 @@ Every day, you’ll find:
 ---
 
 <h2 align="center">⚡ Consistency. Logic. Optimization.  
-<br>Welcome to the Daily DSA Hub — GFGSolutions ⚡</h2>
+<br>Welcome to the Daily DSA Hub - GFGSolutions ⚡</h2>
 
