@@ -63,3 +63,23 @@ Every day, you’ll find:
 ---
 
 ## 📚 **Repository Structure**
+
+---
+
+## 🏆 **Why This Repo Exists**
+✔ To maintain a **daily problem-solving streak**  
+✔ To build a **solid DSA foundation**  
+✔ To help others understand **optimized approaches**  
+✔ To prepare for **placements + coding rounds**  
+
+---
+
+## 🌐 **Useful Links**
+- 🔗 **GeeksforGeeks POTD:** https://practice.geeksforgeeks.org/problem-of-the-day  
+- 🔗 **LeetCode Daily Challenge:** https://leetcode.com/problemset/all/  
+
+---
+
+<h2 align="center">⚡ Consistency. Logic. Optimization.  
+<br>Welcome to the Daily DSA Hub — GFGSolutions ⚡</h2>
+
