@@ -32,7 +32,6 @@ This repository contains daily Problem-Of-The-Day (POTD) solutions from **Geeksf
 **Total Solutions:** 0
 <!-- COUNTERS_END -->
 
-> These counters are refreshed daily by a GitHub Action `.github/workflows/update-readme.yml`.
 
 ---
 
@@ -67,65 +66,5 @@ If this repo helps you, please star ⭐ it — it motivates continued daily upda
 
 ---
 
-<p align="center">Built with consistency & curiosity — <strong>GFGSolutions</strong></p>
-
-### File: .github/workflows/update-readme.yml
-
-name: Update README Counters
-
-# runs daily at 00:00 UTC (change cron if you want a different time)
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch: {}
-
-jobs:
-  update-readme:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Count C++ / Python / Java files
-        id: count_files
-        run: |
-          cpp_count=$(git ls-files '*.cpp' | wc -l | tr -d ' ')
-          py_count=$(git ls-files '*.py' | wc -l | tr -d ' ')
-          java_count=$(git ls-files '*.java' | wc -l | tr -d ' ')
-          total=$((cpp_count + py_count + java_count))
-          echo "cpp=$cpp_count" >> $GITHUB_OUTPUT
-          echo "py=$py_count" >> $GITHUB_OUTPUT
-          echo "java=$java_count" >> $GITHUB_OUTPUT
-          echo "total=$total" >> $GITHUB_OUTPUT
-
-      - name: Show counts (debug)
-        run: |
-          echo "C++ count: ${{ steps.count_files.outputs.cpp }}"
-          echo "Python count: ${{ steps.count_files.outputs.py }}"
-          echo "Java count: ${{ steps.count_files.outputs.java }}"
-          echo "Total: ${{ steps.count_files.outputs.total }}"
-
-      - name: Update README counters
-        run: |
-          CPP=${{ steps.count_files.outputs.cpp }}
-          PY=${{ steps.count_files.outputs.py }}
-          JAVA=${{ steps.count_files.outputs.java }}
-          TOTAL=${{ steps.count_files.outputs.total }}
-
-          # Use perl (with DOTALL) to replace the block between markers
-          perl -0777 -pe "s/<!-- COUNTERS_START -->.*?<!-- COUNTERS_END -->/<!-- COUNTERS_START -->\n**Total Problems (C++ \\/ Python \\/ Java):** $CPP \\/ $PY \\/ $JAVA  \n**Total Solutions:** $TOTAL\n<!-- COUNTERS_END -->/s" README.md > README.tmp
-          mv README.tmp README.md
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          if git commit -m "chore(readme): update language counters [skip ci]" ; then
-            git push
-          else
-            echo "No changes to commit"
-          fi
-
-      - name: Complete
-        run: echo "README counters updated (if changes present)"
+<p align="center">Built with consistency & curiosity - <strong>GFGSolutions</strong></p>
 
